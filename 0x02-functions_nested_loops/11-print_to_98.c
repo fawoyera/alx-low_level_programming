@@ -32,20 +32,22 @@ void print_to_98(int n)
 			}
 			else
 			{
+				int j = 0 - i;
+
 				_putchar('-');
-				if (-i >= 100)
+				if (j >= 100)
 				{
-					_putchar((-i / 100) + '0');
-					_putchar(((-i % 100) / 10) + '0');
-					_putchar((-i % 10) + '0');
+					_putchar((j / 100) + '0');
+					_putchar(((j % 100) / 10) + '0');
+					_putchar((j % 10) + '0');
 				}
-				if (-i >= 10)
+				else if ((j >= 10) && (j <= 99))
 				{
-					_putchar((-i / 10) + '0');
-					_putchar((-i % 10) + '0');
+					_putchar((j / 10) + '0');
+					_putchar((j % 10) + '0');
 				}
-				if (-i < 10)
-					_putchar(-i + '0');
+				if (j < 10)
+					_putchar(j + '0');
 				_putchar(',');
 				_putchar(' ');
 			}
