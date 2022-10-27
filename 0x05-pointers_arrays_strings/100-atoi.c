@@ -9,7 +9,8 @@ int _power(int, int);
  */
 int _atoi(char *s)
 {
-	int i = 0, j, l, m, n = 0, nf, nl, num = 0, neg = 0, sum = 0;
+	int i = 0, j, l, n = 0, nf, nl, num = 0, neg = 0;
+	unsigned int m, sum = 0;
 
 	while (*(s + i) != '\0')
 		i++;
