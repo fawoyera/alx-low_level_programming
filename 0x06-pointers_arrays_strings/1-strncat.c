@@ -11,6 +11,8 @@ char *_strncat(char *dest, char *src, int n)
 {
 	unsigned int i = 0, j = 0;
 
+	if (n == 0)
+		return (dest);
 	while (*(dest + i) != '\0')
 		i++;
 	while (*(src + j) != '\0')
@@ -26,7 +28,8 @@ char *_strncat(char *dest, char *src, int n)
 			break;
 		}
 	}
-	if (j < (unsigned int) n - 1)
+	j++;
+	if (j < (unsigned int) n)
 		*(dest + i) = '\0';
 	return (dest);
 }
