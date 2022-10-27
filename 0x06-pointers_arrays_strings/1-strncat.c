@@ -26,7 +26,7 @@ char *_strncat(char *dest, char *src, int n)
 			break;
 		}
 	}
-	if (j < (unsigned int) n)
+	if (j < (unsigned int) n - 1)
 		*(dest + i) = '\0';
 	return (dest);
 }
