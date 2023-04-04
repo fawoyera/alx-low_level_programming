@@ -24,23 +24,16 @@ unsigned int _strspn(char *s, char *accept)
 	i = 0;
 	while (i < len_of_s)
 	{
-		if (s[i] == *accept)
+		for (k = 0; k < len_of_accept; k++)
 		{
-			i++;
-		}
-		else
-		{
-			for (k = 1; k < len_of_accept; k++)
+			if (s[i] == *(accept + k))
 			{
-				if (s[i] == *(accept + k))
-				{
-					i++;
-					break;
-				}
-			}
-			if (k == len_of_accept)
+				i++;
 				break;
+			}
 		}
+		if (k == len_of_accept)
+			break;
 	}
-	return (i * sizeof(char));
+	return (i);
 }
