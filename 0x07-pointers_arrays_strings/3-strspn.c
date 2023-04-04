@@ -9,7 +9,7 @@
  */
 unsigned int _strspn(char *s, char *accept)
 {
-	unsigned int i, j, k, len_of_accept;
+	unsigned int i, j, k, len_of_accept, len_of_s;
 
 	j = 0;
 	while (*(accept + j) != '\0')
@@ -17,7 +17,12 @@ unsigned int _strspn(char *s, char *accept)
 	len_of_accept = j;
 
 	i = 0;
-	while (1)
+	while (*(s + i) != '\0')
+		i++;
+	len_of_s = i;
+
+	i = 0;
+	while (i < len_of_s)
 	{
 		if (s[i] == *accept)
 		{
@@ -37,4 +42,5 @@ unsigned int _strspn(char *s, char *accept)
 				return (i * sizeof(char));
 		}
 	}
+	return (i * sizeof(char));
 }
