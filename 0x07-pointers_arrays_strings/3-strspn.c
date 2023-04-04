@@ -39,7 +39,7 @@ unsigned int _strspn(char *s, char *accept)
 				}
 			}
 			if (k == len_of_accept)
-				return (i * sizeof(char));
+				break;
 		}
 	}
 	return (i * sizeof(char));
