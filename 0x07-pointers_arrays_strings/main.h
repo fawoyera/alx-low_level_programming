@@ -7,5 +7,7 @@ char *_strchr(char *s, char c);
 unsigned int _strspn(char *s, char *accept);
 char *_strpbrk(char *s, char *accept);
 #define NULL ((void *)0)
+char *_strstr(char *haystack, char *needle);
+
 
 #endif /* _MAIN_H_ */
