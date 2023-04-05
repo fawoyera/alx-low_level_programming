@@ -9,7 +9,7 @@
 void print_diagsums(int *a, int size)
 {
 	int i, temp;
-	unsigned int left_diag_sum, right_diag_sum;
+	int left_diag_sum, right_diag_sum;
 
 	left_diag_sum = 0;
 	right_diag_sum = 0;
@@ -20,5 +20,5 @@ void print_diagsums(int *a, int size)
 		right_diag_sum += *(a + temp);
 		temp += size - 1;
 	}
-	printf("%u, %u\n", left_diag_sum, right_diag_sum);
+	printf("%d, %d\n", left_diag_sum, right_diag_sum);
 }
