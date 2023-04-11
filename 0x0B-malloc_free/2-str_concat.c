@@ -8,8 +8,8 @@
 char *str_concat(char *s1, char *s2)
 {
 	int i = 0, j = 0, k;
-	char *tmp_s1 = s1;
-	char *tmp_s2 = s2;
+	char *tmp_s1;
+	char *tmp_s2;
 	char *newstr;
 	char *tmp_newstr;
 
@@ -17,6 +17,8 @@ char *str_concat(char *s1, char *s2)
 		s1 = "";
 	if (s2 == 0)
 		s2 = "";
+	tmp_s1 = s1;
+	tmp_s2 = s2;
 	while (*s1++)
 		i++;
 	while (*s2++)
