@@ -1,4 +1,7 @@
-#include "main.h"
+#include <stdlib.h>
+#include <unistd.h>
+void _puts(char *s);
+void _putchar(char c);
 /**
  * create_array - function that create an array of chars and initializes with c
  * @size: size of array
