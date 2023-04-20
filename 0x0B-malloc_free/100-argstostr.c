@@ -10,33 +10,31 @@ int _strlen(char *s);
 char *argstostr(int ac, char **av)
 {
 	char *newstr;
-	char *tmpstr;
-	int mem, i, j;
-	int *len;
+	int mem = 0, i, j, k = 0;
 
 	if ((ac == 0) || (av == 0))
 		return (0);
-	len = malloc(ac * sizeof(int));
-	if (len == 0)
-		return (0);
-	mem = 0;
+
 	for (i = 0; i < ac; i++)
 	{
-		len[i] = _strlen(av[i]);
-		mem += (len[i] + 1);
+		mem += _strlen(av[i]);
 	}
+	mem = mem + ac + 1;
 
 	newstr = malloc(mem * sizeof(char));
 	if (newstr == 0)
 		return (0);
-	tmpstr = newstr;
 	for (i = 0; i < ac; i++)
 	{
-		for (j = 0; j < len[i]; j++)
-			*newstr++ = av[i][j];
-		*newstr++ = '\n';
+		for (j = 0; av[i][j] != '\0'; j++)
+		{
+			newstr[k] = av[i][j];
+			k++;
+		}
+		newstr[k] = '\n';
+		k++;
 	}
-	return (tmpstr);
+	return (newstr);
 }
 /**
  * _strlen - find length of string
@@ -48,7 +46,7 @@ int _strlen(char *s)
 {
 	int i = 0;
 
-	while (!*s)
+	while (*s++)
 		i++;
 	return (i);
 }
