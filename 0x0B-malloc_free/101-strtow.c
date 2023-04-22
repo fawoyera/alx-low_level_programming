@@ -25,6 +25,8 @@ char **strtow(char *str)
 		while (str[i] != ' ' && str[i] != '\0')
 			i++;
 	}
+	if (words == 0)
+		return (0);
 	arr = malloc((words + 1) * sizeof(char *));
 	if (arr == 0)
 		return (0);
