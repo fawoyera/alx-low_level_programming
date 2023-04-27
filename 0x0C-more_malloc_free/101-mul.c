@@ -58,13 +58,10 @@ int main(int argc, char *argv[])
 		{
 			product = (argv[1][i - 1] - '0') * (argv[2][j - 1] - '0');
 			res[len11 - i + len22 - j] += product;
+			carry = res[len11 - i + len22 - j] / 10;
+			res[len11 - i + len22 - j] %= 10;
+			res[len11 - i + len22 - j + 1] += carry;
 		}
-	}
-	for (k = 0; k < len11 + len22 - 1; k++)
-	{
-		carry = res[k] / 10;
-		res[k] %= 10;
-		res[k + 1] += carry;
 	}
 	for (k = len11 + len22; k > 0; k--)
 	{
