@@ -47,13 +47,11 @@ int main(int argc, char *argv[])
 	}
 	if (_atoi(argv[1]) == 0 || _atoi(argv[2]) == 0)
 	{
-		_putchar('0');
+		_print(0);
 		_putchar('\n');
 		return (0);
 	}
 	res = calloc((len11 + len22), sizeof(unsigned int));
-	if (res == 0)
-		exit(98);
 	for (i = len11; i > 0; i--)
 	{
 		for (j = len22; j > 0; j--)
