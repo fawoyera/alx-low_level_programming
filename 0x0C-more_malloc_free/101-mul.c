@@ -52,6 +52,11 @@ int main(int argc, char *argv[])
 		return (0);
 	}
 	res = calloc((len11 + len22), sizeof(unsigned int));
+	if (res == 0)
+	{
+		_puts("Error");
+		exit(98);
+	}
 	for (i = len11; i > 0; i--)
 	{
 		for (j = len22; j > 0; j--)
@@ -76,6 +81,7 @@ int main(int argc, char *argv[])
 		}
 	}
 	_putchar('\n');
+	free(res);
 	return (0);
 }
 
