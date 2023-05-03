@@ -7,7 +7,7 @@
 void print_all(const char * const format, ...)
 {
 	va_list ap;
-	unsigned int i = 0, j;
+	unsigned int i = 0, j, flag = 0;
 	char *specifier, *string;
 
 	specifier = "cifs";
@@ -17,33 +17,31 @@ void print_all(const char * const format, ...)
 		j = 0;
 		while (specifier[j])
 		{
-		if (format[i] == specifier[j])
+		if (format[i] == specifier[j] && flag)
 		{
+			printf(", ");
+			break;
+		} j++;
+		}
 		switch (format[i])
 		{
 		case 'c':
-			printf("%c", va_arg(ap, int));
+			printf("%c", va_arg(ap, int)), flag = 1;
 			break;
 		case 'i':
-			printf("%i", va_arg(ap, int));
+			printf("%i", va_arg(ap, int)), flag = 1;
 			break;
 		case 'f':
-			printf("%f", va_arg(ap, double));
+			printf("%f", va_arg(ap, double)), flag = 1;
 			break;
 		case 's':
 			string = va_arg(ap, char*);
 			if (string == NULL)
 				string = "(nil)";
-			printf("%s", string);
-		} switch (format[i + 1])
-		{
-		case '\0':
-			printf("\n");
+			printf("%s", string), flag = 1;
 			break;
-		default:
-			printf(", ");
-		} break;
-		} j++;
 		} i++;
-	} va_end(ap);
+	}
+	printf("\n");
+	va_end(ap);
 }
