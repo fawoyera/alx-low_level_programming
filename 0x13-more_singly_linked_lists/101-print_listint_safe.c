@@ -23,11 +23,14 @@ size_t print_listint_safe(const listint_t *head)
 		i++;
 		temp = temp->next;
 		if (is_in_list(list, temp))
+		{
+			printf("-> [%p] %i\n", (void *)temp, temp->n);
 			break;
+		}
 	}
 
-	if (is_in_list(list, temp))
-		printf("-> [%p] %i\n", (void *)temp, temp->n);
+	if (!head)
+		exit(98);
 	return (i);
 }
 
