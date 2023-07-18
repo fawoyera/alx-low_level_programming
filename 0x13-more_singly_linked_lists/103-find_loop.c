@@ -8,15 +8,23 @@
  */
 listint_t *find_listint_loop(listint_t *head)
 {
-	while (head)
+	listint_t *lag, *lead;
+
+	lag = head;
+	lead = head;
+	while (lag && lead && lead->next)
 	{
-		if (head > head->next)
+		lead = lead->next->next;
+		lag = lag->next;
+		if (lag == lead)
 		{
-			head = head->next;
-		}
-		else
-		{
-			return (head);
+			lag = head;
+			while (lag != lead)
+			{
+				lag = lag->next;
+				lead = lead->next;
+			}
+			return (lead);
 		}
 	}
 
