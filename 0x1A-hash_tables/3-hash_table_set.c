@@ -36,20 +36,16 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		list = ht->array[index];
 		while (list)
 		{
-			if (strcmp(list->key, key) == 0)
+			if (strcmp(list->key, node->key) == 0)
 			{
-				/* update value of existing element*/
 				free(list->value);
-				list->value = strdup(value);
+				list->value = node->value;
 				free(node->key);
-				free(node->value);
 				free(node);
 				return (1);
 			}
 			list = list->next;
 		}
-		
-		/* handle collision */
 		list = ht->array[index];
 		node->next = list;
 		ht->array[index] = node;
